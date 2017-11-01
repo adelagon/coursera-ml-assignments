@@ -17,10 +17,17 @@ grad = zeros(size(theta));
 %               Compute the partial derivatives and set grad to the partial
 %               derivatives of the cost w.r.t. each parameter in theta
 
+%disp(theta);
+%ntheta = [0; theta(2:length(theta));];
 
+[J, grad] = costFunction(theta, X, y);
 
+% theta(2:end) is used in order to skip J(1)
+J += (lambda * sum(theta(2:end) .^ 2)) / (2 * m);
 
-
+for i = 2:size(theta, 1) % skip grad(1)
+    grad(i) += sum((lambda * theta(i)) / m);
+endfor;
 
 % =============================================================
 
