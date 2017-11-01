@@ -36,11 +36,8 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
-
-
-
-
-
+%[J, grad] = costFunction(theta, X, y);
+[J, grad] = costFunctionReg(theta, X, y, lambda);
 
 
 
